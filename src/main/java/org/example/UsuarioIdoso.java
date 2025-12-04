@@ -7,7 +7,7 @@ import com.google.genai.Client;
 public class UsuarioIdoso extends Usuario implements ClassificarPlano {
     private int idade;
     private String comorbidade;
-    private int idUsuarioResponsavel;
+    private int idUsuario;
     private int somaDasAvaliacoes;
 
     public UsuarioIdoso(String nome, String senha, int idade, String comorbidade) {
@@ -16,11 +16,11 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
        this.comorbidade = comorbidade;
     }
 
-    public UsuarioIdoso(String nome, String senha, int idade, String comorbidade, int idUsuarioResponsavel) {
+    public UsuarioIdoso(String nome, String senha, int idade, String comorbidade, int idUsuario) {
         super(nome, senha);
         this.idade = idade;
         this.comorbidade = comorbidade;
-        this.idUsuarioResponsavel = idUsuarioResponsavel;
+        this.idUsuario = idUsuario;
     }
 
     public String getComorbidade() {
@@ -51,6 +51,10 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
 
         PlanoAlimentar plano = new PlanoAlimentar(descricaoPlano, tituloDoPlano, comorbidadeSelecionada);
         System.out.println(response.text());
+    }
+
+    public void criarLembrete() {
+
     }
 
 
