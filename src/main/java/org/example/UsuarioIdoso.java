@@ -1,5 +1,9 @@
 package org.example;
 
+import com.google.genai.types.GenerateContentResponse;
+import java.util.Scanner;
+import com.google.genai.Client;
+
 public class UsuarioIdoso extends Usuario implements ClassificarPlano {
     private int idade;
     private String comorbidade;
@@ -17,6 +21,28 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         this.idade = idade;
         this.comorbidade = comorbidade;
         this.idUsuarioResponsavel = idUsuarioResponsavel;
+    }
+
+    public String getComorbidade() {
+        return comorbidade;
+    }
+
+    public String criarPlano() {
+        String comorbidadeUsuario;
+        Scanner sc = new Scanner(System.in);
+        Client client = new Client();
+
+        System.out.println("Criando um plano para o Idoso");
+        GenerateContentResponse response =
+                client.models.generateContent(
+                        "gemini-2.5-flash",
+                        "Crie um plano alimentar para uma pessoa com a seguinte comorbidade: " +
+                                getComorbidade() + " informando apenas " +
+                                "as refeições: Café da manhã, lanche da manhã, almoço, lanche da tarde" +
+                                "jantar e ceia ",
+                        null);
+        String plano = response.text();
+        return plano;
     }
     @Override
     public int getClassificacao() {
