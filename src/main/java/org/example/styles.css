@@ -1,0 +1,108 @@
+:root {
+    --main-font: 'montserrat', sans-serif;
+    --cor-principal: rgb(86, 112, 48);
+}
+
+body {
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    background: linear-gradient(var(--cor-principal), white);
+}
+
+.container-principal {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: 20px;
+    width: 100%;
+    max-width: max-content;
+    margin: 0 auto;
+}
+
+.bloco-imagem {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   APENAS TESTE*/
+}
+
+.app__foto-idosos {
+    margin-bottom: 2px;
+    max-width: 50%;
+    height: auto;
+}
+
+.app__foto-cesta {
+    max-width: 50%;
+    height: auto;
+}
+
+.coluna-esquerda {
+    flex-direction: column;
+    display:flex;
+    margin-top: 20px;
+}
+
+.menu {
+    display:flex;
+    flex-direction: column;
+}
+
+.app__title {
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.header__menu {
+    /*display: flexbox;*/
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    align-items: top;
+}
+
+.header__menu__link {
+
+    padding: 200px 350px;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.app__footer {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+    color: rgba(33, 155, 200, 0.781);
+    margin-top: 20px;
+}
+
+/*.app_footer-hospitais {
+}*/
+
+.app__footer-nutricionistas {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 500px;
+    align-items: top;
+
+}
+
+.app__footer-developed {
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+    gap: 10px;
+}
