@@ -11,6 +11,10 @@ public class PlanoAlimentar {
         this.comorbidadeSelecionada = comorbidadeSelecionada;
     }
 
+    public PlanoAlimentar() {
+
+    }
+
     public String getDescricaoPlano() {
         return descricaoPlano;
     }

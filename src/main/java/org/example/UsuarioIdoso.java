@@ -31,6 +31,9 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         String comorbidadeUsuario;
         Scanner sc = new Scanner(System.in);
         Client client = new Client();
+        String descricaoPlano;
+        String tituloDoPlano;
+        String comorbidadeSelecionada;
 
         System.out.println("Criando um plano para o Idoso...");
         GenerateContentResponse response =
@@ -41,6 +44,12 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
                                 "as refeições: Café da manhã, lanche da manhã, almoço, lanche da tarde" +
                                 "jantar e ceia ",
                         null);
+        System.out.print("Informe o titulo desse Plano Alimentar: ");
+        tituloDoPlano = sc.nextLine();
+        descricaoPlano = response.text();
+        comorbidadeSelecionada = getComorbidade();
+
+        PlanoAlimentar plano = new PlanoAlimentar(descricaoPlano, tituloDoPlano, comorbidadeSelecionada);
         System.out.println(response.text());
     }
 
