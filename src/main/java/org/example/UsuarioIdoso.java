@@ -43,6 +43,8 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
                         null);
         System.out.println(response.text());
     }
+
+
     @Override
     public int getClassificacao() {
         return (int) somaDasAvaliacoes / 4;
