@@ -26,9 +26,6 @@ public class Main {
 
 
         PlanoAlimentar primeiroPlanoTeste = new PlanoAlimentar(response.text(), "Plano Alimentar para " + comorbidadeUsuario, comorbidadeUsuario);
-        Usuario primeiroUsuario = new Usuario("Matheus", "123456");
-        UsuarioIdoso primeiroIdoso = new UsuarioIdoso("Matheus", "123456", 69, "hipertenso");
-
         System.out.println(primeiroPlanoTeste.toString());
 
         System.out.println();
