@@ -27,12 +27,12 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         return comorbidade;
     }
 
-    public String criarPlano() {
+    public void criarPlano() {
         String comorbidadeUsuario;
         Scanner sc = new Scanner(System.in);
         Client client = new Client();
 
-        System.out.println("Criando um plano para o Idoso");
+        System.out.println("Criando um plano para o Idoso...");
         GenerateContentResponse response =
                 client.models.generateContent(
                         "gemini-2.5-flash",
@@ -41,8 +41,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
                                 "as refeições: Café da manhã, lanche da manhã, almoço, lanche da tarde" +
                                 "jantar e ceia ",
                         null);
-        String plano = response.text();
-        return plano;
+        System.out.println(response.text());
     }
     @Override
     public int getClassificacao() {

@@ -28,7 +28,7 @@ public class Main {
         System.out.println(primeiroPlanoTeste.toString());*/
         UsuarioIdoso meuIdoso = new UsuarioIdoso("Conceição", "123456", 72, "Diabetica");
         meuIdoso.criarPlano();
-        System.out.println(meuIdoso.criarPlano().);
+
         System.out.println();
         System.out.println();
         System.out.println();

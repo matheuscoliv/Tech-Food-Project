@@ -3,7 +3,7 @@ package org.example;
 public class UsuarioResponsavel extends Usuario implements ClassificarPlano{
     private String nome;
     private String senha;
-    private int idIdosoVinculado
+    private int idIdosoVinculado;
     private int somaDasAvaliacoes;
     private int totalDeAvaliacoes;
 
