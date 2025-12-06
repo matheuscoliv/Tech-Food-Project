@@ -1,8 +1,15 @@
 package org.example;
 
 import com.google.genai.types.GenerateContentResponse;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
 import java.util.Scanner;
 import com.google.genai.Client;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class UsuarioIdoso extends Usuario implements ClassificarPlano {
     private int idade;
@@ -27,10 +34,19 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         return comorbidade;
     }
 
-    public void criarPlano() {
+    public void criarPlano() throws IOException, InterruptedException {
         String comorbidadeUsuario;
         Scanner sc = new Scanner(System.in);
         Client client = new Client();
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .create();
+
+
+
+
+
         String descricaoPlano;
         String tituloDoPlano;
         String comorbidadeSelecionada;
@@ -42,8 +58,12 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
                         "Crie um plano alimentar para uma pessoa com a seguinte comorbidade: " +
                                 getComorbidade() + " informando apenas " +
                                 "as refeições: Café da manhã, lanche da manhã, almoço, lanche da tarde" +
+
+
                                 "jantar e ceia ",
                         null);
+        String json = response.text();
+
         System.out.print("Informe o titulo desse Plano Alimentar: ");
         tituloDoPlano = sc.nextLine();
         descricaoPlano = response.text();
@@ -51,6 +71,12 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
 
         PlanoAlimentar plano = new PlanoAlimentar(descricaoPlano, tituloDoPlano, comorbidadeSelecionada);
         System.out.println(response.text());
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        FileWriter teste = new FileWriter("testandojson.txt");
+        teste.write(gson.toJson(descricaoPlano));
+        System.out.println(json);
     }
 
     public void criarLembrete() {

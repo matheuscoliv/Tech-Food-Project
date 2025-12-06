@@ -1,5 +1,13 @@
 package org.example;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,8 +15,10 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Scanner sc = new Scanner(System.in);
+        String comorbidade = "";
+
 
         UsuarioIdoso meuIdoso = new UsuarioIdoso("Conceição", "123456", 72, "Diabetica");
         meuIdoso.criarPlano();
@@ -18,7 +28,7 @@ public class Main {
         System.out.println();
 
 
-        Conexao cx = new Conexao();
+       /* Conexao cx = new Conexao();
         Connection conn = null;
 
 
@@ -51,6 +61,6 @@ public class Main {
         } catch (SQLException e){
             System.out.println("erro ao inserir no banco: "+ e.getMessage());
         }
-
+*/
     }
 }

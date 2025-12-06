@@ -1,6 +1,8 @@
 package org.example;
 
 public class PlanoAlimentar {
+
+
     private String descricaoPlano;
     private String tituloDoPlano;
     private String comorbidadeSelecionada;
