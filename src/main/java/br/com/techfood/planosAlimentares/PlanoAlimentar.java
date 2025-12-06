@@ -1,4 +1,4 @@
-package org.example;
+package br.com.techfood.planosAlimentares;
 
 public class PlanoAlimentar {
     private String descricaoPlano;
@@ -20,6 +20,8 @@ public class PlanoAlimentar {
         this.dicasExtras = planoJson.dicas();
     }
 
+
+
     //PRECISO ENTENDER COMO COLOCAR UM PLANO ALIMENTAR CONVERTIDO EM JSON DENTRO DA CLASSE PLANO ALIMENTAR POS SER CONVERTIDO
 
     public String getDescricaoPlano() {
@@ -29,14 +31,14 @@ public class PlanoAlimentar {
     @Override
     public String toString() {
         return "==========================================\n" +
-                "✅ Plano Alimentar Gerado com Sucesso! ✅\n" +
+                "Plano Alimentar Gerado!\n" +
                 "==========================================\n" +
-                "📃 Título do Plano: " + tituloDoPlano + "\n" +
-                "🩺 Comorbidade: " + comorbidadeSelecionada + "\n" +
+                "Título do Plano: " + tituloDoPlano + "\n" +
+                "Comorbidade: " + comorbidadeSelecionada + "\n" +
                 "------------------------------------------\n" +
-                "🗓️ DIETA DO PLANO:\n" + descricaoPlano + "\n" +
+                "DIETA DO PLANO:\n" + descricaoPlano + "\n" +
                 "------------------------------------------\n" +
-                "💡 DICAS EXTRAS:\n" + dicasExtras + "\n" +
+                "DICAS EXTRAS:\n" + dicasExtras + "\n" +
                 "==========================================";
     }
 }

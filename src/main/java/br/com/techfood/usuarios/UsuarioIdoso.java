@@ -1,10 +1,16 @@
-package org.example;
+package br.com.techfood.usuarios;
+
+import br.com.techfood.planosAlimentares.ClassificarPlano;
+import br.com.techfood.planosAlimentares.PlanoAlimentar;
+import br.com.techfood.planosAlimentares.PlanoConvertido;
 
 import com.google.genai.types.GenerateContentResponse;
-import java.io.FileWriter;
-import java.util.Scanner;
+
 import com.google.genai.Client;
 import com.google.gson.Gson;
+
+import java.io.FileWriter;
+import java.util.Scanner;
 
 public class UsuarioIdoso extends Usuario implements ClassificarPlano {
     private int idade;
@@ -43,9 +49,9 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
                     client.models.generateContent(
                             "gemini-2.5-flash",
                             """
-                                    Gere um plano alimentar em JSON no formato abaixo, sem texto fora dele:
+                                    Gere um plano alimentar em JSON .json no formato abaixo, sem texto fora dele:
                                     {
-                                        "titulo": "%s",
+                                        "titulo": %s,
                                         "dietaDoPlano": "string",
                                         "dicas": "string"
                                         "comorbidadeSelect": "string"
@@ -60,16 +66,15 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
                     .trim();
 
             Gson gson = new Gson();
-            PlanoConvertido dadosConvertidos = gson.fromJson(jsonLimpo, PlanoConvertido.class);
+            PlanoConvertido planoJson = gson.fromJson(jsonLimpo, PlanoConvertido.class);
 
-            PlanoAlimentar meuPlanoAlimentar = new PlanoConvertido(dadosConvertidos);
 
-            FileWriter teste = new FileWriter("testandojson.txt");
+            FileWriter teste = new FileWriter("testandojson.json");
             teste.write(jsonLimpo);
             teste.close();
-            System.out.println(meuPlanoAlimentar);
 
-
+            PlanoAlimentar meuPlanoAlimentar = new PlanoAlimentar(planoJson);
+            System.out.println(meuPlanoAlimentar.toString());
 
         } catch (Exception e) {
             System.out.println("Erro " + e.getMessage());

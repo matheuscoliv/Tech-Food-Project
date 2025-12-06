@@ -1,4 +1,4 @@
-package org.example;
+package br.com.techfood.lembretes;
 
 public class Lembretes {
     private String titulo;

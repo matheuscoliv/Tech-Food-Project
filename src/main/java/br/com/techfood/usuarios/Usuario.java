@@ -1,4 +1,4 @@
-package org.example;
+package br.com.techfood.usuarios;
 
 
 abstract class Usuario {

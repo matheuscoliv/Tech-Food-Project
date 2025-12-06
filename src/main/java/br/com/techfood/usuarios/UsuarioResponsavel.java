@@ -1,6 +1,8 @@
-package org.example;
+package br.com.techfood.usuarios;
 
-public class UsuarioResponsavel extends Usuario implements ClassificarPlano{
+import br.com.techfood.planosAlimentares.ClassificarPlano;
+
+public class UsuarioResponsavel extends Usuario implements ClassificarPlano {
     private String nome;
     private String senha;
     private int idIdosoVinculado;
