@@ -1,5 +1,6 @@
 package br.com.techfood.usuarios;
 
+import br.com.techfood.lembretes.Lembretes;
 import br.com.techfood.planosAlimentares.ClassificarPlano;
 import br.com.techfood.planosAlimentares.PlanoAlimentar;
 import br.com.techfood.planosAlimentares.PlanoConvertido;
@@ -82,7 +83,20 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
     }
 
     public void criarLembrete() {
+        Scanner sc = new Scanner(System.in);
+        int idUsuario;
+        String descricaoLembrete = "";
+        String titulo = "";
+        System.out.println("Informe o ID do Usuario");
+        idUsuario = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Titulo do lembrete: ");
+        titulo = sc.nextLine();
+        System.out.println("Descrição: ");
+        descricaoLembrete = sc.nextLine();
 
+        Lembretes meuLembrete = new Lembretes(titulo, descricaoLembrete, idUsuario);
+        System.out.println(meuLembrete.toString());
     }
 
 

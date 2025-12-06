@@ -20,6 +20,8 @@ public class Lembretes {
         this.descricaoLembrete = descricaoLembrete;
         this.idUsuario = idUsuario;
     }
+
+
     public static class Builder {
         private String titulo;
         private String descricaoLembrete;
@@ -42,5 +44,18 @@ public class Lembretes {
         public Lembretes build() {
             return new Lembretes(this);
         }
+    }
+
+
+    @Override
+    public String toString() {
+        return "==========================================\n" +
+                "Lembrete Gerado!\n" +
+                "==========================================\n" +
+                "Título do Lembrete: " + titulo + "\n" +
+                "Descrição: " + descricaoLembrete + "\n" +
+                "------------------------------------------\n" +
+                "ID DO USUÁRIO: " + idUsuario + "\n" +
+                "==========================================";
     }
 }

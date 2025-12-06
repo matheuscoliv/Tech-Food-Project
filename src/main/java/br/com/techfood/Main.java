@@ -13,6 +13,8 @@ public class Main {
 
         UsuarioIdoso meuIdoso = new UsuarioIdoso("Conceição", "123456", 72, "Diabetica");
         meuIdoso.criarPlano();
+        meuIdoso.criarLembrete();
+
 
     }
 }
