@@ -7,10 +7,11 @@ import java.sql.SQLException;
 
 public class Conexao {
     private String login = "root";
-    private String senha = "";
+    private String senha = "pokemon.123";
     private String host = "localhost";
-    private String dbName = "TechFood";
-    private String url = "jdbc:mysql://" + host + ":3306/" + dbName + "?useTimezone=true&serverTimezone=UTC";
+    private String dbName = "techfood";
+    private String url = "jdbc:mysql://"+ host+":3306/"+dbName+"?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+
 
 
 
@@ -20,10 +21,11 @@ public class Conexao {
 
     public Connection getConnection(){
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         }
         catch (ClassNotFoundException e)
         {
+            e.printStackTrace();
             return null;
         }
         try {
@@ -31,6 +33,7 @@ public class Conexao {
         }
         catch (SQLException ex)
         {
+            ex.printStackTrace();
             return null;
         }
         return this.conexao;

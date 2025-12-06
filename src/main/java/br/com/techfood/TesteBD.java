@@ -27,9 +27,9 @@ public class TesteBD {
     System.out.println("Nome do Cliente: ");
     String nome= sc.nextLine();
     System.out.println("Fone do Cliente: ");
-    String fone = sc.nextLine();
+    String credencial = sc.nextLine();
 
-    String sql = "INSERT INTO Usuario (nome,telefone) values ('"+nome+"','"+fone+"')";
+    String sql = "INSERT INTO usuario (nome,credencial) values ('"+nome+"','"+credencial+"')";
     //System.out.println(sql);
 
     ResultSet rs = null;
