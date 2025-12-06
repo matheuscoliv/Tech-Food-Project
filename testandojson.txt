@@ -1,0 +1,8 @@
+```json
+{
+    "titulo": "Testando titulo funcional",
+    "dietaDoPlano": "**Café da Manhã:** Omelete de 2 ovos com espinafre e tomate, 1 fatia de pão integral 100% com abacate. | **Lanche da Manhã:** Punhado de 10-12 amêndoas ou nozes. | **Almoço:** Salmão assado (150g) com brócolis cozido no vapor e 1/2 xícara de quinoa. Salada verde com azeite extra virgem. | **Lanche da Tarde:** Iogurte natural sem açúcar com 1/2 xícara de frutas vermelhas (morangos, mirtilos). | **Jantar:** Sopa cremosa de abóbora com lentilhas e pedaços de frango desfiado. | **Ceia (opcional):** Chá de camomila sem açúcar.",
+    "dicas": "Monitore seus níveis de glicose regularmente. Priorize alimentos integrais, vegetais não amiláceos, proteínas magras e gorduras saudáveis. Evite açúcares adicionados, alimentos processados, bebidas açucaradas e carboidratos refinados. Mantenha-se hidratado e distribua as refeições em porções controladas ao longo do dia para evitar picos de glicemia. Consulte um nutricionista ou médico para um plano alimentar personalizado.",
+    "comorbidadeSelect": "Diabetica"
+}
+```

@@ -1,4 +1,4 @@
 package org.example;
 
-public record PlanoConvertido(String cabecalho, String corpoDoPlano, String dicas) {
+public record PlanoConvertido(String titulo, String comorbidadeSelect, String dietaDoPlano, String dicas) {
 }

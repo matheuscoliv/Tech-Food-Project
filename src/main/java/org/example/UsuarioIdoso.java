@@ -1,15 +1,10 @@
 package org.example;
 
 import com.google.genai.types.GenerateContentResponse;
-
 import java.io.FileWriter;
-import java.io.IOException;
-
 import java.util.Scanner;
 import com.google.genai.Client;
-import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class UsuarioIdoso extends Usuario implements ClassificarPlano {
     private int idade;
@@ -34,49 +29,51 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         return comorbidade;
     }
 
-    public void criarPlano() throws IOException, InterruptedException {
-        String comorbidadeUsuario;
+    public void criarPlano() {
         Scanner sc = new Scanner(System.in);
-        Client client = new Client();
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .setPrettyPrinting()
-                .create();
+        try {
+            String tituloDoPlano;
+            Client client = new Client();
+
+            System.out.println("Crie o titulo desse plano: ");
+            tituloDoPlano = sc.nextLine();
+            System.out.println("Criando um plano para o Idoso...");
+
+            GenerateContentResponse response =
+                    client.models.generateContent(
+                            "gemini-2.5-flash",
+                            """
+                                    Gere um plano alimentar em JSON no formato abaixo, sem texto fora dele:
+                                    {
+                                        "titulo": "%s",
+                                        "dietaDoPlano": "string",
+                                        "dicas": "string"
+                                        "comorbidadeSelect": "string"
+                                    }   
+                                    
+                                    Comorbidade: %s
+                                    """.formatted(tituloDoPlano, getComorbidade()),
+                            null);
+
+            String jsonLimpo = response.text().replaceAll("```json", "")
+                    .replaceAll("```", "")
+                    .trim();
+
+            Gson gson = new Gson();
+            PlanoConvertido dadosConvertidos = gson.fromJson(jsonLimpo, PlanoConvertido.class);
+
+            PlanoAlimentar meuPlanoAlimentar = new PlanoConvertido(dadosConvertidos);
+
+            FileWriter teste = new FileWriter("testandojson.txt");
+            teste.write(jsonLimpo);
+            teste.close();
+            System.out.println(meuPlanoAlimentar);
 
 
 
-
-
-        String descricaoPlano;
-        String tituloDoPlano;
-        String comorbidadeSelecionada;
-
-        System.out.println("Criando um plano para o Idoso...");
-        GenerateContentResponse response =
-                client.models.generateContent(
-                        "gemini-2.5-flash",
-                        "Crie um plano alimentar para uma pessoa com a seguinte comorbidade: " +
-                                getComorbidade() + " informando apenas " +
-                                "as refeições: Café da manhã, lanche da manhã, almoço, lanche da tarde" +
-
-
-                                "jantar e ceia ",
-                        null);
-        String json = response.text();
-
-        System.out.print("Informe o titulo desse Plano Alimentar: ");
-        tituloDoPlano = sc.nextLine();
-        descricaoPlano = response.text();
-        comorbidadeSelecionada = getComorbidade();
-
-        PlanoAlimentar plano = new PlanoAlimentar(descricaoPlano, tituloDoPlano, comorbidadeSelecionada);
-        System.out.println(response.text());
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        FileWriter teste = new FileWriter("testandojson.txt");
-        teste.write(gson.toJson(descricaoPlano));
-        System.out.println(json);
+        } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+        }
     }
 
     public void criarLembrete() {
