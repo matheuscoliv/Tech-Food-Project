@@ -6,21 +6,16 @@ function showPassword () {
     const eyeSlash=document.getElementById('eye-slash');
     const fieldPassword=document.getElementById('field-password');
     const fieldConfirmacao=document.getElementById('field-confirmacao');
-    const ver = document.getElementById('ver');
-    const naoVer = document.getElementById('naoVer');
 
 
-    if(eye.style.display ==='none' || ver.style.display ==='none') {
+    if(eye.style.display ==='none') {
         eye.style.display = 'block';
         eyeSlash.style.display = 'none';
         fieldPassword.type = 'text';
-        fieldConfirmacao.type = 'text';
     } else {
         eye.style.display = 'none';
         eyeSlash.style.display = 'block';
         fieldPassword.type = 'password';
-        fieldConfirmacao.type = 'password';
-
     }
 }
 
@@ -40,14 +35,15 @@ document.getElementById('btn-cadastrar').addEventListener('click', function(e) {
 
 function verificarCadastro() {
     const fieldPassword = document.getElementById('field-password');
-    const fieldConfirmacao = document.getElementById('field-confirmacao');
     const btnCadastrar = document.getElementById('btn-cadastrarpage');
 
-    if(fieldPassword.value.length < 4 || fieldConfirmacao.value.length < 4){
+
+    if(fieldPassword.value.length < 4){
         alert("Senha invalida, tente mais caracteres");
+    } else {
+        alert("Cadastro realizado com sucesso!")
     }
 
-    if(fieldPassword != fieldConfirmacao) {
-        alert('A confirmação falhou')
-    }
+
+
 }
