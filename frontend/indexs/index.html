@@ -11,7 +11,7 @@
 <header class="header">
     <nav class="header__menu">
         <a class="header__menu__link" href="index.html">Home</a>
-        <a class="header__menu__link" href="lembretes.html">Lembretes</a>
+        <!--<a class="header__menu__link" href="lembretes.html">Lembretes</a> -->
         <section>
             <h1 class="app__title">
                 TechFood<br>
@@ -34,12 +34,14 @@
             </section>
         </div>
         <div class="menu">
-            <form action="buscar">
+            <form class="buscar-input" action="buscar">
                 <input type="search" name="q" placeholder="Pesquisar">
             </form>
-            <button>Criar Planos</button>
-            <button>Planos</button>
-            <button>Lembretes</button>
+            <div class="botoes-home">
+                <button class ="botao-criar">Criar Planos</button>
+                <button class ="botao-planos">Planos</button>
+                <button class ="botao-lembretes" id="botao-lembrete">Lembretes</button>
+            </div>
         </div>
         <div class="bloco-imagem">
             <img class="app__foto-idosos" src="../img/cesta-frutas.png.png" alt="Idosos">

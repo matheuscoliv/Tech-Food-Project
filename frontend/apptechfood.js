@@ -43,7 +43,12 @@ function verificarCadastro() {
     } else {
         alert("Cadastro realizado com sucesso!")
     }
-
-
-
 }
+
+document.getElementById('botao-lembrete').addEventListener('click', function(e) {
+    e.preventDefault();
+    alert("Redirecionando para pagina de cadastro")
+    window.location.href = "lembretes.html";
+})
+
+
