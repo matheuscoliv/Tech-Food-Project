@@ -43,19 +43,15 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         Conexao cx = new Conexao();
         Connection conn = cx.getConnection();
 
-        String sql = "INSERT INTO idoso (Id_User, idade) VALUES ("
-                + this.getId_User() + ", " + this.idade + ")";
+        String sql = "INSERT INTO idoso (Id_User, idade) VALUES (" +
+                this.getId_User() + ", " + this.idade + ")";
 
         try {
             Statement st = conn.createStatement();
-            st.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+            st.executeUpdate(sql);
 
-            ResultSet rs = st.getGeneratedKeys();
-            if (rs.next()) {
-                int idIdosoGerado = rs.getInt(1);
-                System.out.println("Idoso inserido com sucesso! (Id_Idoso=" + idIdosoGerado + ")");
-                return idIdosoGerado;
-            }
+            System.out.println("Idoso inserido com sucesso! (Id_User=" + this.getId_User() + ")");
+            return this.getId_User();  // ID DO IDOSO = ID DO USUARIO
 
         } catch (SQLException e){
             System.out.println("Erro ao inserir idoso: " + e.getMessage());
@@ -63,6 +59,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
 
         return -1;
     }
+
 
 
     public int salvarComorbidade(int idIdoso, String nome) {
@@ -165,7 +162,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
 
             if (idPlanoGerado <= 0) {
                 System.out.println("ERRO: plano não foi salvo no banco.");
-                return;
+                return null;
             }
 
             //System.out.println("Plano salvo no banco! ID = " + idPlanoGerado);
@@ -185,34 +182,6 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         }
     }
 
-    /*public void criarLembrete() {
-        Scanner sc = new Scanner(System.in);
-        int idUsuario;
-        String descricaoLembrete = "";
-        String titulo = "";
-        System.out.println("Informe o ID do Usuario");
-        idUsuario = sc.nextInt();
-
-
-
-        sc.nextLine();
-        System.out.println("Titulo do lembrete: ");
-        titulo = sc.nextLine();
-        System.out.println("Descrição: ");
-        descricaoLembrete = sc.nextLine();
-
-        //String sql = "INSERT INTO usuario "
-
-        Lembretes meuLembrete = new Lembretes(titulo, descricaoLembrete, idUsuario);
-        int idGerado = meuLembrete.GuardaLembreteBD();
-
-        if (idGerado > 0) {
-            System.out.println("Lembrete salvo no banco! ID = " + idGerado);
-        }
-
-        System.out.println(meuLembrete.toString());
-    }
-    */
 
     public void criarLembrete() {
 
@@ -233,9 +202,6 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
             System.out.println("Lembrete salvo! ID = " + idGerado);
         }
     }
-
-
-
 
 
 

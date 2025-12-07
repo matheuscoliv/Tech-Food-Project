@@ -25,12 +25,11 @@ public class UsuarioResponsavel extends Usuario implements ClassificarPlano {
         this.idIdosoVinculado = idIdosoVinculado;
     }
 
-<<<<<<< HEAD
     public void mostrarPlanoDoIdosoVinculado(PlanoAlimentar plano, int idIdosoVinculado) {
         System.out.println(plano.toString());
     }
 
-=======
+
 
     public void GuardarUsuarioResponsavel() {
 
@@ -59,7 +58,7 @@ public class UsuarioResponsavel extends Usuario implements ClassificarPlano {
 
 
 
->>>>>>> a38146e48ea99685bc6ba9977a65609a9ccbfd46
+
     @Override
     public int getClassificacao() {
         return (int) somaDasAvaliacoes / 2;

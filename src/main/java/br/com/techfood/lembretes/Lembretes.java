@@ -23,10 +23,6 @@ public class Lembretes {
         this.descricaoLembrete = builder.descricaoLembrete;
         this.idUsuario = builder.idUsuario;
     }
-    //public Lembretes(String descricaoLembrete, int idUsuario) {
-      //  this.descricaoLembrete = descricaoLembrete;
-      //  this.idUsuario = idUsuario;
-    //  }
 
 
     public int GuardaLembreteBD() {
