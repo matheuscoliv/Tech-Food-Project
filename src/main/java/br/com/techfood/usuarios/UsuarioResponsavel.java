@@ -1,6 +1,7 @@
 package br.com.techfood.usuarios;
 
 import br.com.techfood.planosAlimentares.ClassificarPlano;
+import br.com.techfood.planosAlimentares.PlanoAlimentar;
 
 public class UsuarioResponsavel extends Usuario implements ClassificarPlano {
     private String nome;
@@ -16,6 +17,10 @@ public class UsuarioResponsavel extends Usuario implements ClassificarPlano {
     public UsuarioResponsavel (String nome, String senha, int idIdosoVinculado) {
         super(nome, senha);
         this.idIdosoVinculado = idIdosoVinculado;
+    }
+
+    public void mostrarPlanoDoIdosoVinculado(PlanoAlimentar plano, int idIdosoVinculado) {
+        System.out.println(plano.toString());
     }
 
     @Override

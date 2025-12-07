@@ -36,14 +36,9 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         return comorbidade;
     }
 
-    public void criarPlano() {
-        Scanner sc = new Scanner(System.in);
+    public PlanoAlimentar criarPlano() {
         try {
-            String tituloDoPlano;
             Client client = new Client();
-
-            System.out.println("Crie o titulo desse plano: ");
-            tituloDoPlano = sc.nextLine();
             System.out.println("Criando um plano para o Idoso...");
 
             GenerateContentResponse response =
@@ -52,14 +47,14 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
                             """
                                     Gere um plano alimentar em JSON .json no formato abaixo, sem texto fora dele:
                                     {
-                                        "titulo": %s,
+                                        "titulo": "string",
                                         "dietaDoPlano": "string",
                                         "dicas": "string"
                                         "comorbidadeSelect": "string"
                                     }   
                                     
                                     Comorbidade: %s
-                                    """.formatted(tituloDoPlano, getComorbidade()),
+                                    """.formatted(getComorbidade()),
                             null);
 
             String jsonLimpo = response.text().replaceAll("```json", "")
@@ -76,9 +71,10 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
 
             PlanoAlimentar meuPlanoAlimentar = new PlanoAlimentar(planoJson);
             System.out.println(meuPlanoAlimentar.toString());
-
+            return meuPlanoAlimentar;
         } catch (Exception e) {
             System.out.println("Erro " + e.getMessage());
+            return null;
         }
     }
 
