@@ -39,8 +39,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         this.idUsuario = idUsuario;
     }
 
-    public void GuardarIdoso() {
-
+    public int GuardarIdoso() {
         Conexao cx = new Conexao();
         Connection conn = cx.getConnection();
 
@@ -49,14 +48,22 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
 
         try {
             Statement st = conn.createStatement();
-            st.executeUpdate(sql);
+            st.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
 
-            System.out.println("Idoso inserido com sucesso! (Id=" + this.getId_User() + ")");
+            ResultSet rs = st.getGeneratedKeys();
+            if (rs.next()) {
+                int idIdosoGerado = rs.getInt(1);
+                System.out.println("Idoso inserido com sucesso! (Id_Idoso=" + idIdosoGerado + ")");
+                return idIdosoGerado;
+            }
 
         } catch (SQLException e){
             System.out.println("Erro ao inserir idoso: " + e.getMessage());
         }
+
+        return -1;
     }
+
 
     public int salvarComorbidade(int idIdoso, String nome) {
 

@@ -27,13 +27,12 @@ public class UsuarioResponsavel extends Usuario implements ClassificarPlano {
 
     public void GuardarUsuarioResponsavel() {
 
-        int idUserGerado = this.GuardaUsuarioBD();
+        int idUserGerado = this.GuardaUsuarioBD(); // cria o usuário responsável
 
         if (idUserGerado <= 0) {
             System.out.println("Erro ao criar usuário responsável.");
             return;
         }
-
 
         Conexao cx = new Conexao();
         Connection conn = cx.getConnection();
@@ -43,18 +42,14 @@ public class UsuarioResponsavel extends Usuario implements ClassificarPlano {
 
         try {
             Statement st = conn.createStatement();
-            int linhas = st.executeUpdate(sql);
-
-            if (linhas > 0) {
-                System.out.println("Responsável vinculado ao idoso com sucesso!");
-            } else {
-                System.out.println("Falha ao vincular responsável.");
-            }
+            st.executeUpdate(sql);
+            System.out.println("Responsável vinculado ao idoso com sucesso!");
 
         } catch (SQLException e) {
             System.out.println("Erro ao inserir responsável: " + e.getMessage());
         }
     }
+
 
 
     @Override
