@@ -165,7 +165,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
 
             if (idPlanoGerado <= 0) {
                 System.out.println("ERRO: plano não foi salvo no banco.");
-                return;
+                return null;
             }
 
             //System.out.println("Plano salvo no banco! ID = " + idPlanoGerado);
@@ -184,35 +184,6 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
             return null;
         }
     }
-
-    /*public void criarLembrete() {
-        Scanner sc = new Scanner(System.in);
-        int idUsuario;
-        String descricaoLembrete = "";
-        String titulo = "";
-        System.out.println("Informe o ID do Usuario");
-        idUsuario = sc.nextInt();
-
-
-
-        sc.nextLine();
-        System.out.println("Titulo do lembrete: ");
-        titulo = sc.nextLine();
-        System.out.println("Descrição: ");
-        descricaoLembrete = sc.nextLine();
-
-        //String sql = "INSERT INTO usuario "
-
-        Lembretes meuLembrete = new Lembretes(titulo, descricaoLembrete, idUsuario);
-        int idGerado = meuLembrete.GuardaLembreteBD();
-
-        if (idGerado > 0) {
-            System.out.println("Lembrete salvo no banco! ID = " + idGerado);
-        }
-
-        System.out.println(meuLembrete.toString());
-    }
-    */
 
     public void criarLembrete() {
 
