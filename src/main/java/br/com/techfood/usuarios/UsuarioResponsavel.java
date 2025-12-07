@@ -25,7 +25,6 @@ public class UsuarioResponsavel extends Usuario implements ClassificarPlano {
         this.idIdosoVinculado = idIdosoVinculado;
     }
 
-
     public void mostrarPlanoDoIdosoVinculado(PlanoAlimentar plano, int idIdosoVinculado) {
         System.out.println(plano.toString());
     }
@@ -56,6 +55,7 @@ public class UsuarioResponsavel extends Usuario implements ClassificarPlano {
             System.out.println("Erro ao inserir responsável: " + e.getMessage());
         }
     }
+
 
 
 

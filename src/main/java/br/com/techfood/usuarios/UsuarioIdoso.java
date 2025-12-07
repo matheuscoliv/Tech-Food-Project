@@ -43,19 +43,15 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         Conexao cx = new Conexao();
         Connection conn = cx.getConnection();
 
-        String sql = "INSERT INTO idoso (Id_User, idade) VALUES ("
-                + this.getId_User() + ", " + this.idade + ")";
+        String sql = "INSERT INTO idoso (Id_User, idade) VALUES (" +
+                this.getId_User() + ", " + this.idade + ")";
 
         try {
             Statement st = conn.createStatement();
-            st.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+            st.executeUpdate(sql);
 
-            ResultSet rs = st.getGeneratedKeys();
-            if (rs.next()) {
-                int idIdosoGerado = rs.getInt(1);
-                System.out.println("Idoso inserido com sucesso! (Id_Idoso=" + idIdosoGerado + ")");
-                return idIdosoGerado;
-            }
+            System.out.println("Idoso inserido com sucesso! (Id_User=" + this.getId_User() + ")");
+            return this.getId_User();  // ID DO IDOSO = ID DO USUARIO
 
         } catch (SQLException e){
             System.out.println("Erro ao inserir idoso: " + e.getMessage());
@@ -63,6 +59,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
 
         return -1;
     }
+
 
 
     public int salvarComorbidade(int idIdoso, String nome) {
@@ -185,6 +182,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         }
     }
 
+
     public void criarLembrete() {
 
         Scanner sc = new Scanner(System.in);
@@ -204,9 +202,6 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
             System.out.println("Lembrete salvo! ID = " + idGerado);
         }
     }
-
-
-
 
 
 
