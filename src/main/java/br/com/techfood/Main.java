@@ -5,11 +5,30 @@ import br.com.techfood.planosAlimentares.PlanoAlimentar;
 import br.com.techfood.usuarios.UsuarioIdoso;
 import br.com.techfood.usuarios.UsuarioResponsavel;
 
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int idade;
+        String comorbidade;
+        String nome;
+        String senha;
+        System.out.println("=====================");
+        System.out.print("Informe seu nome de usuario: ");
+        nome = sc.nextLine();
+        System.out.print("Informe sua senha: ");
+        senha = sc.nextLine();
+        System.out.println("=====================");
+        System.out.println("Informe sua idade: ");
+        idade = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Informe sua comorbidade: ");
+        comorbidade = sc.nextLine();
 
+        UsuarioIdoso meuIdoso = new UsuarioIdoso(nome, senha, idade, comorbidade);
 
-        UsuarioIdoso meuIdoso = new UsuarioIdoso("Conceição", "123456", 72, "Diabetica");
         PlanoAlimentar meuPlano = meuIdoso.criarPlano();
         meuIdoso.criarLembrete();
 
