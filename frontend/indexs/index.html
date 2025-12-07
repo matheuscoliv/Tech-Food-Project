@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechFood</title>
     <link rel="stylesheet" href="../styles/home.css">
+
+    <script src="../apptechfood.js" defer></script>
 </head>
 <body>
 <header class="header">
     <nav class="header__menu">
         <a class="header__menu__link" href="index.html">Home</a>
-        <!--<a class="header__menu__link" href="lembretes.html">Lembretes</a> -->
         <section>
             <h1 class="app__title">
                 TechFood<br>
@@ -38,9 +39,13 @@
                 <input type="search" name="q" placeholder="Pesquisar">
             </form>
             <div class="botoes-home">
-                <button class ="botao-criar">Criar Planos</button>
-                <button class ="botao-planos">Planos</button>
-                <button class ="botao-lembretes" id="botao-lembrete">Lembretes</button>
+                <button class="botao-criar" type="button" onclick="window.location.href='indexplano.html'">
+                    Criar Planos
+                </button>
+                <button class="botao-lembretes" id="botao-lembrete" type="button"
+                        onclick="window.location.href='lembretes.html'">
+                    Lembretes
+                </button>
             </div>
         </div>
         <div class="bloco-imagem">

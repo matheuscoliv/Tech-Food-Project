@@ -1,4 +1,3 @@
-//const html = docuument.querySelector('html');
 let username = "Matheus";
 let password = "12345678";
 function showPassword () {
@@ -48,7 +47,9 @@ function verificarCadastro() {
 document.getElementById('botao-lembrete').addEventListener('click', function(e) {
     e.preventDefault();
     alert("Redirecionando para pagina de cadastro")
-    window.location.href = "lembretes.html";
+    window.location.href = "cadastro.html";
 })
+
+
 
 
