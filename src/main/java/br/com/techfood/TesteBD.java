@@ -1,4 +1,4 @@
-package br.com.techfood;
+/*package br.com.techfood;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,9 +11,9 @@ public class TesteBD {
 
     Conexao cx = new Conexao();
     Connection conn = null;
-
-
     conn = cx.getConnection();
+
+
     if( conn == null)
         System.out.println("A conexão não ocorreu");
     else
@@ -36,8 +36,8 @@ public class TesteBD {
     try {
         Statement st = conn.createStatement();
 
-        int intRs = st.executeUpdate(sql);
-        if (intRs > 0)
+        int linhas = st.executeUpdate(sql);
+        if (linhas > 0)
             System.out.println("Inclusão relaizada com sucesso");
         else
             System.out.println("Inclusão não realizada");
@@ -48,3 +48,4 @@ public class TesteBD {
     }
 }
 
+*/
