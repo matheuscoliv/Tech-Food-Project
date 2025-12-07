@@ -71,7 +71,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         Connection conn = cx.getConnection();
 
         // NOME CORRETO DA TABELA: comorbidade
-        String sql = "INSERT INTO comorbidade (nome_comorbidade, Id_Idoso) VALUES ('"
+        String sql = "INSERT INTO comorbidades (nome_comorbidade, Id_Idoso) VALUES ('"
                 + nome + "', " + idIdoso + ")";
 
         try {
@@ -99,7 +99,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
         Connection conn = cx.getConnection();
 
         // NOME CORRETO DA TABELA: idoso_comorbidades (com S)
-        String sql = "INSERT INTO idoso_comorbidades (Id_Idoso, Id_Comorbidade, Id_Plano_Alimentar) VALUES ("
+        String sql = "INSERT INTO idoso_comorbidade (Id_Idoso, Id_Comorbidade, Id_Plano_Alimentar) VALUES ("
                 + idIdoso + ", " + idComorbidade + ", " + idPlano + ")";
 
         try {

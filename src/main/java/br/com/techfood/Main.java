@@ -6,7 +6,7 @@ import br.com.techfood.usuarios.UsuarioIdoso;
 public class Main {
     public static void main(String[] args) {
 
-        UsuarioIdoso meuIdoso = new UsuarioIdoso("moreia", "123456", 72, "Diabetica");
+        UsuarioIdoso meuIdoso = new UsuarioIdoso("jucelina", "123456", 72, "Diabetica");
 
         int idUser = meuIdoso.GuardaUsuarioBD();   // método da classe Usuario
         meuIdoso.setId_User(idUser); //
@@ -20,7 +20,7 @@ public class Main {
         meuIdoso.criarLembrete();
 
 
-        UsuarioResponsavel resp = new UsuarioResponsavel("Carla", "senha123", meuIdoso.getId_User());
+        UsuarioResponsavel resp = new UsuarioResponsavel("roberto", "senha143", meuIdoso.getId_User());
         resp.GuardarUsuarioResponsavel();
 
     }
