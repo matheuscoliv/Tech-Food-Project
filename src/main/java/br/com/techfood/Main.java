@@ -12,7 +12,6 @@ public class Main {
 
         int idUser = meuIdoso.GuardaUsuarioBD();
         meuIdoso.setId_User(idUser);
-
         //USUARIO RESPONSAVEL VISUALIZA O PLANO DO IDOSO
         //UsuarioResponsavel meuResponsavel = new UsuarioResponsavel("Matheus", "4002", 1);
         //meuResponsavel.mostrarPlanoDoIdosoVinculado(meuPlano, 1);
