@@ -1,4 +1,11 @@
 package br.com.techfood.lembretes;
+import br.com.techfood.Conexao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 
 public class Lembretes {
     private String titulo;
@@ -16,9 +23,37 @@ public class Lembretes {
         this.descricaoLembrete = builder.descricaoLembrete;
         this.idUsuario = builder.idUsuario;
     }
-    public Lembretes(String descricaoLembrete, int idUsuario) {
-        this.descricaoLembrete = descricaoLembrete;
-        this.idUsuario = idUsuario;
+    //public Lembretes(String descricaoLembrete, int idUsuario) {
+      //  this.descricaoLembrete = descricaoLembrete;
+      //  this.idUsuario = idUsuario;
+    //  }
+
+
+    public int GuardaLembreteBD() {
+
+        Conexao cx = new Conexao();
+        Connection conn = cx.getConnection();
+
+        String sql = "INSERT INTO lembrete (titulo, descricao, Id_User) VALUES ('"
+                + this.titulo + "', '" + this.descricaoLembrete + "', " + this.idUsuario + ")";
+
+        try {
+            Statement st = conn.createStatement();
+
+            st.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = st.getGeneratedKeys();
+            if (rs.next()) {
+                int idGerado = rs.getInt(1);
+                System.out.println("Lembrete inserido com sucesso! ID = " + idGerado);
+                return idGerado;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao inserir lembrete: " + e.getMessage());
+        }
+
+        return -1;
     }
 
 
