@@ -35,20 +35,20 @@ abstract class Usuario {
             ResultSet rs = st.getGeneratedKeys();
 
             if (rs.next()) {
-                int idGerado = rs.getInt(1); // ID real criado no MySQL
+                int idGerado = rs.getInt(1);
 
-                // salva no objeto
+
                 this.Id_User = idGerado;
 
                 System.out.println("ID gerado do usuario = " + idGerado);
-                return idGerado;  // devolve o ID para ser usado em idoso/responsavel
+                return idGerado;
             }
 
         } catch (SQLException e){
             System.out.println("erro ao inserir no banco: " + e.getMessage());
         }
 
-        return -1; // caso dê erro
+        return -1;
     }
 
     public void setId_User(int id) {
