@@ -1,18 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge"></meta-equiv>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lembretes</title>
-    <link rel="stylesheet" href="./styles/style.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lembretes TechFood</title>
+    <link rel="stylesheet" href="../styles/lembretes.css">
 </head>
 <body>
-<header>
+<header class="header">
     <nav class="header__menu">
         <a class="header__menu__link" href="index.html">Home</a>
         <a class="header__menu__link" href="lembretes.html">Lembretes</a>
+            <h1 class="app__title">
+                TechFood<br>
+            </h1>
     </nav>
 </header>
+<main>
+    <form action="">
+        <section class="fazerLembrete">
+            <h2>Lembretes</h2>
+        </section>
+        <section class="inputs-lembretes">
+            <div class="lembretes-container">
+                <input type="text" id="campo-titulo-lembrete" class="campo-lembrete" placeholder="Informe o titulo do lembrete">
+                <input type="text" id="campo-desc-lembrete" class="campo-lembrete" placeholder="Informe a descrição do lembrete">
+            </div>
+        </section>
+        <button id="btn-salvar-lembrete">Salvar</button>
+    </form>
+</main>
 </body>
 </html>
