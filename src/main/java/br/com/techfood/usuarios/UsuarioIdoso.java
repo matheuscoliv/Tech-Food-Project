@@ -111,13 +111,7 @@ public class UsuarioIdoso extends Usuario implements ClassificarPlano {
             System.out.println("Erro ao salvar idoso_comorbidade: " + e.getMessage());
         }
     }
-
-
-
-
-
-
-
+    
     public String getComorbidade() {
         return comorbidade;
     }
