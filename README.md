@@ -79,7 +79,7 @@ Tech-Food-Project/
 |---|---|
 | Kevin Willian | [@Kevin-willian](https://github.com/Kevin-willian) |
 | Matheus Henrique | [@matheuscoliv](https://github.com/matheuscoliv) |
-| Matheus Henrique | [@matheuscoliv](https://github.com/matheuscoliv) |
+| Kaiky Lobo| [@KaikyLobo](https://github.com/KaikyLobo) |
 
 ---
 
